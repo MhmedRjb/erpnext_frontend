@@ -53,8 +53,8 @@ const props = defineProps({
 					opacity: 0.2;
 				"
 			></div>
-			<a href="#" class="py-5 text-center size-36">
-				<img :src="svgData" class="block mx-auto" alt="Workspace Icon" />
+			<a href="#" class="py-2 text-center size-36">
+				<img :src="svgData" class="block mx-auto size-20" alt="Workspace Icon" />
 				<p
 					class="pt-4 py-10 text-sm font-medium capitalize font-body text-green-900 sm:text-base md:text-lg lg:text-xl xl:text-2xl md:pt-6"
 				>
