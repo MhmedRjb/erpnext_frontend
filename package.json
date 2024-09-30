@@ -1,0 +1,15 @@
+{
+  "name": "erpnext_frontend",
+  "version": "1.0.0",
+  "description": "add pages to erpnext to enhance the fro",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd main && yarn install",
+    "dev": "cd main && yarn dev",
+    "build": "cd main && yarn build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
