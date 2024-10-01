@@ -35,7 +35,7 @@
     <br>
 	with 
 	<span class="before:block  before:absolute before:-inset-1 before:-skew-y-3 before:bg-[#0d99ff] relative inline-block">
-        <span class="relative text-white"> &nbsp;&nbsp;&nbsp; ERPnext &nbsp;&nbsp;&nbsp;</span>
+        <span class="relative text-white"> &nbsp;&nbsp;&nbsp; ERPnext  &nbsp;&nbsp;&nbsp;</span>
     </span>
 </blockquote>
 

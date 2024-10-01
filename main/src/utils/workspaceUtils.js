@@ -20,6 +20,8 @@ const colorMap = {
 	Users: 'bg-stone-500',
 	Website: 'bg-red-600', // This color is already in the default palette
 }
+
+
 export const getColor = (title) => {
 	return colorMap[title] || 'bg-teal-500'
 }
