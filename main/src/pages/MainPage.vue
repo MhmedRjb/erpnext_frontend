@@ -1,7 +1,9 @@
 <template>
 	<div class="h-screen flex flex-col">
 		<nav class="bg-gray-800 text-white flex mb-10 basis-1.5">Navigation Bar</nav>
-
+		<!-- add workspaceResource as json -->
+		 <div>
+		 </div>
 		<div class="flex flex-grow basis-auto">
 			<div class="w-52"></div>
 
@@ -10,7 +12,7 @@
 					class="flex flex-wrap gap-4 justify-center mx-auto w-full sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6"
 				>
 					<WorkspaceCard
-						v-for="workspace in workspaceList"
+						v-for="workspace in filteredWorkspaces"
 						:key="workspace.title"
 						:workspace="workspace"
 						:color="getColor(workspace.title)"
@@ -46,7 +48,7 @@ import { computed } from 'vue'
 import WorkspaceCard from '../components/WorkspaceCard.vue'
 const workspaceResource = createListResource({
 	doctype: 'Workspace',
-	fields: ['title'],
+	fields: ['title','parent_page'],
 	auto: true,
 })
 
@@ -54,6 +56,11 @@ const workspaceList = computed(() => {
 	if (workspaceResource.list.data) {
 		return workspaceResource.list.data
 	}
+})
+
+const filteredWorkspaces =computed(()=>{
+    return workspaceList.value.filter(workspace => workspace.parent_page === '');
+	
 })
 
 const colorMap = {
