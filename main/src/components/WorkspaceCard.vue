@@ -1,23 +1,5 @@
-<!-- <template>
-        <a href="#" class=" flex-grow block w-52 py-10 text-center border ">
-                <img src="https://redpixelthemes.com/assets/images/icon-portfolio-green.svg" class="block mx-auto">
-                <p class="pt-4 text-sm font-medium capitalize font-body text-green-900 lg:text-lg md:text-base md:pt-6">
-                    {{ workspace.title }}
-                </p>
-        </a>
-
-  </template>
-  
-<script setup>
-
-const props = defineProps({
-	workspace: Object,
-})
-</script>
- -->
-
 <template>
-	<div :class="['flex-grow relative overflow-hidden rounded-lg shadow-lg group  ', color]">
+	<div :class="['flex-auto relative overflow-hidden rounded-lg shadow-lg group', color]">
 		<svg
 			class="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform"
 			viewBox="0 0 375 283"
@@ -53,7 +35,7 @@ const props = defineProps({
 					opacity: 0.2;
 				"
 			></div>
-			<a href="#" class="py-2 text-center size-36">
+			<a :href="url" class="py-2 text-center size-36">
 				<img :src="svgData" class="block mx-auto size-20" alt="Workspace Icon" />
 				<p
 					class="pt-4 py-10 text-sm font-medium capitalize font-body text-green-900 sm:text-base md:text-lg lg:text-xl xl:text-2xl md:pt-6"
@@ -77,6 +59,10 @@ const props = defineProps({
 	},
 
 	svgData: {
+		type: String,
+		required: true,
+	},
+	url: {
 		type: String,
 		required: true,
 	},

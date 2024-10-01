@@ -1,13 +1,10 @@
 <template>
 	<div class="h-screen flex flex-col">
-		<!-- Navigation Bar -->
-		<nav class="bg-gray-800 text-white flex h-10 mb-10">Navigation Bar</nav>
+		<nav class="bg-gray-800 text-white flex mb-10 basis-1.5">Navigation Bar</nav>
 
-		<!-- Main Content Area -->
-		<div class="flex flex-grow mb-56">
+		<div class="flex flex-grow basis-auto">
 			<div class="w-52"></div>
 
-			<!-- Right Column -->
 			<div class="flex-grow overflow-auto lg:overflow-hidden">
 				<div
 					class="flex flex-wrap gap-4 justify-center mx-auto w-full sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6"
@@ -18,11 +15,27 @@
 						:workspace="workspace"
 						:color="getColor(workspace.title)"
 						:svgData="getSvgData(workspace.title)"
+						:url="getUrl(workspace.title)"
 					/>
 				</div>
 			</div>
-
 			<div class="w-52"></div>
+		</div>
+		<div class="flex justify-center basis-44">
+			<blockquote class="text-2xl font-semibold italic text-center text-slate-900">
+				The best way to predict .
+				<span
+					class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-green-600 relative inline-block"
+				>
+					<span class="relative text-white">the future</span>
+				</span>
+				is to
+				<span
+					class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block"
+				>
+					<span class="relative text-white">invent it</span>
+				</span>
+			</blockquote>
 		</div>
 	</div>
 </template>
@@ -70,7 +83,7 @@ const getColor = (title) => {
 }
 
 const svgMap = {
-  Accounting: 'https://img.icons8.com/?size=100&id=22462&format=png&color=000000',
+	Accounting: 'https://img.icons8.com/?size=100&id=22462&format=png&color=000000',
 	Assets: 'https://img.icons8.com/?size=100&id=22467&format=png&color=000000',
 	Build: 'https://img.icons8.com/?size=100&id=rZkxuhikMLfr&format=png&color=000000',
 	Buying: 'https://img.icons8.com/?size=100&id=13012&format=png&color=000000',
@@ -90,14 +103,22 @@ const svgMap = {
 	Tools: 'https://img.icons8.com/?size=100&id=85740&format=png&color=000000',
 	Users: 'https://img.icons8.com/?size=100&id=11901&format=png&color=000000',
 	Website: 'https://img.icons8.com/?size=100&id=102562&format=png&color=000000', // This color is already in the default palette
-
 }
 
 const getSvgData = (title) => {
 	return svgMap[title] || defaultSvgUrl
 }
 
+const urlMap = {
+	Build: 'app/Build',
+}
+const getUrl = (title) => {
+	console.log(`/app/${title.toLowerCase().replace(/ /g, '-')}`)
+	return `/app/${title.toLowerCase().replace(/ /g, '-')}`
+}
+
 const defaultSvgUrl = 'https://redpixelthemes.com/assets/images/icon-portfolio-green.svg'
+const defaultUrl = '/app/home'
 </script>
 
 <script></script>
