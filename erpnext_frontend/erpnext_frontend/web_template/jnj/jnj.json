@@ -1,0 +1,16 @@
+{
+ "__unsaved": 1,
+ "creation": "2024-10-02 15:18:43.723353",
+ "docstatus": 0,
+ "doctype": "Web Template",
+ "fields": [],
+ "idx": 0,
+ "modified": "2024-10-02 15:19:13.484524",
+ "modified_by": "Administrator",
+ "module": "Erpnext Frontend",
+ "name": "jnj",
+ "owner": "Administrator",
+ "standard": 1,
+ "template": "",
+ "type": "Navbar"
+}
