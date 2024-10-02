@@ -4,9 +4,9 @@
 		 <div>
 		 </div>
 		<div class="flex flex-grow basis-auto mt-10 mb-10">
-			<!-- <button @click="toggleFilter" class="mb-4 p-2 bg-blue-500 text-white rounded">Filter Workspaces</button> -->
-			<div class="w-52"></div>
-			<div class="flex-grow overflow-auto lg:overflow-hidden">
+			<div class="basis-1/4">
+			</div>
+			<div class="  flex-grow overflow-auto lg:overflow-hidden">
 				<div
 					class="flex flex-wrap gap-4 justify-center mx-auto w-full sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
 					<WorkspaceCard
@@ -19,9 +19,14 @@
 					/>
 				</div>
 			</div>
-			<div class="w-52"></div>
+			<div class="basis-10 "></div>
 		</div>
 		<div class="flex justify-center basis-44">
+
+
+
+
+
 	<blockquote class="text-2xl font-semibold italic text-center text-slate-900">
     The best way to predict
     <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-green-600 relative inline-block">
@@ -33,10 +38,11 @@
     </span>
     <br>
     <br>
-	with 
-	<span class="before:block  before:absolute before:-inset-1 before:-skew-y-3 before:bg-[#0d99ff] relative inline-block">
-        <span class="relative text-white"> &nbsp;&nbsp;&nbsp; ERPnext  &nbsp;&nbsp;&nbsp;</span>
-    </span>
+	with &nbsp;&nbsp;
+	<span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-[#0d99ff] relative inline-block">
+    <span class="relative text-white" style="
+    font-size: xx-large;"> &nbsp;&nbsp;&nbsp;ERPnext &nbsp;&nbsp;&nbsp;</span>
+</span>
 </blockquote>
 
 

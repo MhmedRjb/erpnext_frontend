@@ -1,29 +1,10 @@
 const colorMap = {
-	Accounting: 'bg-teal-500',
-	Assets: 'bg-red-500',
-	Build: 'bg-blue-500',
-	Buying: 'bg-yellow-500',
-	CRM: 'bg-green-500',
-	'Financial Reports': 'bg-purple-500',
-	Home: 'bg-pink-500',
-	Integrations: 'bg-teal-500',
-	Manufacturing: 'bg-orange-500',
-	Payables: 'bg-cyan-500',
-	Projects: 'bg-green-500',
-	Quality: 'bg-amber-500',
-	Receivables: 'bg-emerald-500',
-	Selling: 'bg-gray-500',
-	Settings: 'bg-rose-500',
-	Stock: 'bg-violet-500',
-	Support: 'bg-purple-500',
-	Tools: 'bg-gray-500',
-	Users: 'bg-stone-500',
-	Website: 'bg-red-600', // This color is already in the default palette
+	Accounting: 'bg-gray-50',
 }
 
 
 export const getColor = (title) => {
-	return colorMap[title] || 'bg-teal-500'
+	return colorMap[title] || 'bg-gray-50'
 }
 const defaultSvgUrl = 'https://redpixelthemes.com/assets/images/icon-portfolio-green.svg'
 const svgMap = {
