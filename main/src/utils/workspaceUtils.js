@@ -6,13 +6,9 @@ const colorMap = {
 export const getColor = (title) => {
 	return colorMap[title] || 'bg-gray-50'
 }
-
-import imgUrl from '@/assets/images/Assets.svg'
-const defaultSvgUrl = new URL('/assets/images/Assets.svg', import.meta.url).href
-
 const svgMap = {
-	Accounting: "https://github.com/MhmedRjb/erpnext_frontend/blob/highsolve/main/src/assets/images/Buying.svg",
-	Assets: defaultSvgUrl,
+	Accounting: 'assets/images/Accounting.svg',
+	Assets: 'assets/images/Assets.svg',
 	Build: 'https://img.icons8.com/?size=100&id=rZkxuhikMLfr&format=png&color=000000',
 	Buying: 'https://img.icons8.com/?size=100&id=13012&format=png&color=000000',
 	CRM: 'https://img.icons8.com/?size=100&id=rJl8pTEO0lyZ&format=png&color=000000',
@@ -33,9 +29,10 @@ const svgMap = {
 	Website: 'https://img.icons8.com/?size=100&id=102562&format=png&color=000000', 
 }
 
+const defaultSvgUrl = new URL('@/assets/images/Accounting.svg', import.meta.url).href
 
 export const getSvgData = (title) => {
-	return svgMap[title] || imgUrl
+	return svgMap[title] || defaultSvgUrl
 }
 
 const defaultUrl = '/app/home'
@@ -46,5 +43,4 @@ const urlMap = {
 export const getUrl = (title) => {
 	return `/app/${title.toLowerCase().replace(/ /g, '-')}`
 }
-
 

@@ -14,7 +14,7 @@
 						:key="workspace.title"
 						:workspace="workspace"
 						:color="getColor(workspace.title)"
-						:svgData="getSvgData(workspace.title)"
+						:svgData=workspace.custom_second_icon
 						:url="getUrl(workspace.title)"
 					/>
 				</div>
@@ -39,7 +39,7 @@
     <br>
     <br>
 	with &nbsp;&nbsp;
-	<span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-[#0d99ff] relative inline-block">
+	<span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-[#060e14] relative inline-block">
     <span class="relative text-white" style="
     font-size: xx-large;"> &nbsp;&nbsp;&nbsp;ERPnext &nbsp;&nbsp;&nbsp;</span>
 </span>
@@ -60,7 +60,7 @@ import { getColor ,getSvgData ,getUrl} from'../utils/workspaceUtils'
 
 const workspaceResource = createListResource({
 	doctype: 'Workspace',
-	fields: ['title','parent_page'],
+	fields: ['title','parent_page','custom_second_icon'],
 	idx: 'title',
 	auto: true,
 })
