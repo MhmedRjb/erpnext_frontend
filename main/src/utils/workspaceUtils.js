@@ -6,10 +6,13 @@ const colorMap = {
 export const getColor = (title) => {
 	return colorMap[title] || 'bg-gray-50'
 }
-const defaultSvgUrl = 'https://redpixelthemes.com/assets/images/icon-portfolio-green.svg'
+
+import imgUrl from '@/assets/images/Assets.svg'
+const defaultSvgUrl = new URL('/assets/images/Assets.svg', import.meta.url).href
+
 const svgMap = {
-	Accounting: 'https://img.icons8.com/?size=100&id=22462&format=png&color=000000',
-	Assets: 'https://img.icons8.com/?size=100&id=22467&format=png&color=000000',
+	Accounting: "https://github.com/MhmedRjb/erpnext_frontend/blob/highsolve/main/src/assets/images/Buying.svg",
+	Assets: defaultSvgUrl,
 	Build: 'https://img.icons8.com/?size=100&id=rZkxuhikMLfr&format=png&color=000000',
 	Buying: 'https://img.icons8.com/?size=100&id=13012&format=png&color=000000',
 	CRM: 'https://img.icons8.com/?size=100&id=rJl8pTEO0lyZ&format=png&color=000000',
@@ -30,8 +33,9 @@ const svgMap = {
 	Website: 'https://img.icons8.com/?size=100&id=102562&format=png&color=000000', 
 }
 
+
 export const getSvgData = (title) => {
-	return svgMap[title] || defaultSvgUrl
+	return svgMap[title] || imgUrl
 }
 
 const defaultUrl = '/app/home'
@@ -42,4 +46,5 @@ const urlMap = {
 export const getUrl = (title) => {
 	return `/app/${title.toLowerCase().replace(/ /g, '-')}`
 }
+
 
