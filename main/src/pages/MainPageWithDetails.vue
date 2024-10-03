@@ -63,7 +63,6 @@
 						:key="workspace.title"
 						:workspace="workspace"
 						:color="getColor(workspace.title)"
-						:svgData="getSvgData(workspace.title)"
 						:url="getUrl(workspace.title)"
 					/>
 				</div>

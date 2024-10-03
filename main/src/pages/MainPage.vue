@@ -1,95 +1,102 @@
 <template>
 	<div class="h-screen flex flex-col">
-		<!-- add workspaceResource as json -->
-		 <div>
-		 </div>
-		<div class="flex flex-grow basis-auto mt-10 mb-10">
-			<div class="basis-1/4">
-			</div>
-			<div class="  flex-grow overflow-auto lg:overflow-hidden">
+		<div class="flex flex-grow basis-auto m-10">
+			<div class="flex-grow lg:overflow-hidden">
 				<div
-					class="flex flex-wrap gap-4 justify-center mx-auto w-full sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+					class="flex flex-wrap gap-4 justify-start sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6"
+				>
 					<WorkspaceCard
-						v-for="workspace in filteredWorkspaces"
+						v-for="workspace in workspaceList"
 						:key="workspace.title"
 						:workspace="workspace"
 						:color="getColor(workspace.title)"
-						:svgData=workspace.custom_second_icon
+						:svgData="workspace.custom_second_icon"
 						:url="getUrl(workspace.title)"
 					/>
 				</div>
 			</div>
-			<div class="basis-10 "></div>
 		</div>
 		<div class="flex justify-center basis-44">
+			<blockquote class="text-2xl font-semibold italic text-center text-slate-900">
+				Nothing is built on
+				<span
+					class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-gray-600 relative inline-block"
+				>
+					<span class="relative text-white">stone</span>
+				</span>
+				all is built on
+				<span
+					class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-yellow-400 relative inline-block"
+				>
+					<span class="relative">sand</span>
+				</span>
 
-
-
-
-
-	<blockquote class="text-2xl font-semibold italic text-center text-slate-900">
-    The best way to predict
-    <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-green-600 relative inline-block">
-        <span class="relative text-white">the future</span>
-    </span>
-    is to
-    <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block">
-        <span class="relative text-white">invent it</span>
-    </span>
-    <br>
-    <br>
-	with &nbsp;&nbsp;
-	<span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-[#060e14] relative inline-block">
-    <span class="relative text-white" style="
-    font-size: xx-large;"> &nbsp;&nbsp;&nbsp;ERPnext &nbsp;&nbsp;&nbsp;</span>
-</span>
-</blockquote>
-
-
-
-
+				<br />
+				<br />
+				but we must build as if the
+				<span
+					class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-yellow-400 relative inline-block"
+				>
+					<span class="relative">sand</span>
+				</span>
+				were
+				<span
+					class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-gray-600 relative inline-block"
+				>
+					<span class="relative text-white">stone</span>
+				</span>
+			</blockquote>
 		</div>
 	</div>
 </template>
 
 <script setup>
 import { createListResource } from 'frappe-ui'
-import { computed ,ref ,watch} from 'vue'
+
+import { computed, ref, watch, onMounted, onBeforeMount } from 'vue'
 import WorkspaceCard from '../components/WorkspaceCard.vue'
-import { getColor ,getSvgData ,getUrl} from'../utils/workspaceUtils'
+import { getColor, getSvgData, getUrl } from '../utils/workspaceUtils'
 
-const workspaceResource = createListResource({
-	doctype: 'Workspace',
-	fields: ['title','parent_page','custom_second_icon'],
-	idx: 'title',
-	auto: true,
-})
+const workspaces = ref([])
+const bootinfo = ref([])
+const fetchedData = ref(null) // Make fetchedData reactive
 
-const workspaceList = computed(() => workspaceResource.list.data || [])
-
-const filteredWorkspaces = ref([])
-
-watch(workspaceList, (newList) => {
-    filteredWorkspaces.value = newList
-}, { immediate: true })
-
-
-const isFiltered = ref(false)
-
-
-const toggleFilter = () => {
-	let allowedParentPages=['']
-    if (isFiltered.value) {
-        filteredWorkspaces.value = workspaceList.value
-    } else {
-		allowedParentPages.push("Accounting")
-		console.log(allowedParentPages)
-		filteredWorkspaces.value = workspaceList.value.filter(
-			workspace => allowedParentPages.includes(workspace.parent_page));
-    }
-    isFiltered.value = !isFiltered.value
+const fetchBootinfo = async () => {
+	try {
+		const response = await fetch('/api/method/erpnext_frontend.api.get_bootinfo')
+		if (!response.ok) {
+			throw new Error('Network response was not ok')
+		}
+		const data = await response.json()
+		console.log(data.message)
+		workspaces.value = data.message
+		bootinfo.value = data.message
+		fetchedData.value = data.message // Assign fetched data to the reactive variable
+	} catch (error) {
+		console.error('Error fetching bootinfo:', error)
+	}
 }
 
+onBeforeMount(() => {
+	fetchBootinfo()
+})
 
-	</script>
+const workspaceResource = ref(null) 
 
+watch(fetchedData, (newValue) => {
+	if (newValue) {
+		workspaceResource.value = createListResource({
+			doctype: 'Workspace',
+			fields: ['*'],
+			idx: 'title',
+			filters: [
+				['parent_page', 'in', ['']],
+				['title', 'in', newValue],
+			],
+			auto: true,
+		})
+	}
+})
+
+const workspaceList = computed(() => workspaceResource.value?.list.data || [])
+</script>

@@ -23,9 +23,9 @@ const routes = [
 		component: () => import('@/pages/Login.vue'),
 	},
 	{
-		name :'MainPageWithDetails',
-		path:'/MainPageWithDetails',
-		component :()=> import('@/pages/MainPageWithDetails.vue')
+		name: 'MainPageWithDetails',
+		path: '/MainPageWithDetails',
+		component: () => import('@/pages/MainPageWithDetails.vue'),
 	},
 ]
 
