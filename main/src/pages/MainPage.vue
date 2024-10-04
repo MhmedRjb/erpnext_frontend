@@ -1,6 +1,6 @@
 <template>
 	<div class="h-screen flex flex-col">
-		<div class="flex flex-grow basis-auto m-10">
+		<div class="flex flex-grow basis-auto my-10 md:ml-16">
 			<div class="flex-grow lg:overflow-hidden">
 				<div
 					class="flex flex-wrap gap-4 justify-start sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6"
@@ -55,7 +55,7 @@ import { createListResource } from 'frappe-ui'
 
 import { computed, ref, watch, onMounted, onBeforeMount } from 'vue'
 import WorkspaceCard from '../components/WorkspaceCard.vue'
-import { getColor, getSvgData, getUrl } from '../utils/workspaceUtils'
+import { getColor, getUrl } from '../utils/workspaceUtils'
 
 const workspaces = ref([])
 const bootinfo = ref([])
@@ -99,4 +99,7 @@ watch(fetchedData, (newValue) => {
 })
 
 const workspaceList = computed(() => workspaceResource.value?.list.data || [])
+
+
 </script>
+

@@ -4,29 +4,23 @@ import { userResource } from '@/data/user'
 import { compile } from 'vue'
 
 const routes = [
-	{
-		path: '/',
-		name: 'Home',
-		component: () => import('@/pages/Home.vue'),
-		redirect: {
-			name: 'MainPage',
-		},
-	},
+
 	{
 		name: 'MainPage',
 		path: '/mainpage',
 		component: () => import('@/pages/MainPage.vue'),
+		meta: { requiresAuth: true },
 	},
 	{
 		name: 'Login',
-		path: '/account/login',
-		component: () => import('@/pages/Login.vue'),
+		path: '/login',
+		// component: () => import('@/pages/Login.vue'),
 	},
-	{
-		name: 'MainPageWithDetails',
-		path: '/MainPageWithDetails',
-		component: () => import('@/pages/MainPageWithDetails.vue'),
-	},
+	// {
+	// 	name: 'MainPageWithDetails',
+	// 	path: '/MainPageWithDetails',
+	// 	component: () => import('@/pages/MainPageWithDetails.vue'),
+	// },
 ]
 
 let router = createRouter({
@@ -42,7 +36,7 @@ router.beforeEach(async (to, from, next) => {
 		isLoggedIn = false
 	}
 	if (to.meta.requiresAuth && !isLoggedIn) {
-		window.location.href = '/mainpage'
+		window.location.href = '/login'
 	}
 	next()
 })
