@@ -17,35 +17,14 @@
 			</div>
 		</div>
 		<div class="flex justify-center basis-44">
-			<!-- <blockquote class="text-2xl font-semibold italic text-center text-slate-900">
-				Nothing is built on
+			<blockquote class="text-2xl font-semibold text-center text-slate-900">
+				© powered by:
 				<span
-					class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-gray-600 relative inline-block"
+					class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-[#0089ff] relative inline-block"
 				>
-					<span class="relative text-white">stone</span>
+					<span class="relative text-white">High solve</span>
 				</span>
-				all is built on
-				<span
-					class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-yellow-400 relative inline-block"
-				>
-					<span class="relative">sand</span>
-				</span>
-
-				<br />
-				<br />
-				but we must build as if the
-				<span
-					class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-yellow-400 relative inline-block"
-				>
-					<span class="relative">sand</span>
-				</span>
-				were
-				<span
-					class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-gray-600 relative inline-block"
-				>
-					<span class="relative text-white">stone</span>
-				</span>
-			</blockquote> -->
+			</blockquote>
 		</div>
 	</div>
 </template>

@@ -1,7 +1,7 @@
 <template>
 	<div
 		:class="[
-			' w-20  h-40 sm:flex-grow md:flex-none  relative 2xl:pt-10 overflow-hidden rounded-lg shadow-lg group border-2   hover:shadow-blue-600    sm:w-36  lg:size-52 xl:size-[52]   ',
+			' w-16  h-40 sm:flex-grow md:flex-none  relative 2xl:pt-10 overflow-hidden rounded-lg shadow-lg group border-2 border-Slate-100   hover:shadow-blue-600    sm:w-36  lg:size-52 xl:size-[52]   ',
 			color,
 		]"
 	>
@@ -20,7 +20,7 @@
 					class="block mx-auto size-20 md:size-20"
 					alt="Workspace Icon"
 				/>
-				<p class="pt-4 py-9 md:py-0 md:pt-0 xl:pt-5 capitalize font-bold text-blue-900">
+				<p class="pt-4 py-9 md:py-0 md:pt-0 xl:pt-5 capitalize font-bold text-red-700">
 					{{ workspace.title }}
 				</p>
 			</a>
