@@ -17,7 +17,7 @@
 			</div>
 		</div>
 		<div class="flex justify-center basis-44">
-			<blockquote class="text-2xl font-semibold italic text-center text-slate-900">
+			<!-- <blockquote class="text-2xl font-semibold italic text-center text-slate-900">
 				Nothing is built on
 				<span
 					class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-gray-600 relative inline-block"
@@ -45,7 +45,7 @@
 				>
 					<span class="relative text-white">stone</span>
 				</span>
-			</blockquote>
+			</blockquote> -->
 		</div>
 	</div>
 </template>
@@ -81,7 +81,7 @@ onBeforeMount(() => {
 	fetchBootinfo()
 })
 
-const workspaceResource = ref(null) 
+const workspaceResource = ref(null)
 
 watch(fetchedData, (newValue) => {
 	if (newValue) {
@@ -99,7 +99,4 @@ watch(fetchedData, (newValue) => {
 })
 
 const workspaceList = computed(() => workspaceResource.value?.list.data || [])
-
-
 </script>
-

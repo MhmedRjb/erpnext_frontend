@@ -4,7 +4,6 @@ import { userResource } from '@/data/user'
 import { compile } from 'vue'
 
 const routes = [
-
 	{
 		name: 'MainPage',
 		path: '/mainpage',
@@ -36,7 +35,9 @@ router.beforeEach(async (to, from, next) => {
 		isLoggedIn = false
 	}
 	if (to.meta.requiresAuth && !isLoggedIn) {
-		window.location.href = '/login'
+        const redirectTo = encodeURIComponent(to.fullPath);
+        window.location.href = `/login?redirect-to=${redirectTo}`;
+        return;
 	}
 	next()
 })

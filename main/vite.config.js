@@ -15,10 +15,9 @@ export default defineConfig({
 		outDir: `../${path.basename(path.resolve('..'))}/public/main`,
 		emptyOutDir: true,
 		target: 'es2015',
-		chunkSizeWarningLimit:1600,
-
+		chunkSizeWarningLimit: 1600,
 	},
-	
+
 	optimizeDeps: {
 		include: ['frappe-ui > feather-icons', 'showdown', 'engine.io-client'],
 	},
